@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import 'assets/scss/variables.scss';
+@import 'assets/scss/purple-gekko.scss';
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+.color-primary {
+    color: $color-primary;
+}
+
+.color-accent {
+    color: $color-accent;
+}
+
+
+app-root {
+  display: block;
+  min-height: 100% !important;
+}

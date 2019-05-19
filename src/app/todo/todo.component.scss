@@ -1,0 +1,61 @@
+@import '../../assets/scss/main.scss';
+
+form {
+	max-width: 800px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 100px;
+
+	mat-form-field{
+		width: 100%;
+	}
+
+	input.ng-touched.ng-invalid{
+		border-color: #dc3545;
+	}
+
+	div.validation-error{
+		width: 100%;
+		margin-top: .25rem;
+		font-size: 80%;
+		color: #dc3545;
+	}
+}
+
+.todos{
+	max-width: 800px;
+
+	.todo{
+		position: relative;
+		margin: 20px 0;
+
+		mat-card-content{
+			padding: 10px 17px;
+			display: flex;
+			flex-direction: row;
+			.todo-description{
+				width: 100%;
+				justify-self: flex-start;
+			}
+			.todo-status{
+				justify-self: flex-end;
+			}
+		}
+		mat-card-actions{
+			position: absolute;
+			top: 25px;
+			right: -100px;
+		}
+		.spacer {
+			flex: 1 1 auto;
+		}
+
+		&.status-doing{
+			background-color: #4878C0;
+		}
+		&.status-done{
+			background-color: #3EA3AD;
+		}
+	}
+}

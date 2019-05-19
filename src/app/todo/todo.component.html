@@ -1,0 +1,43 @@
+<h1>Todo list</h1>
+<form [formGroup]="todoService.form"
+      class="todo-form mx-auto"
+      (submit)="submitForm()">
+    <mat-form-field>
+        <input formControlName="title"
+               matInput
+               placeholder="Something to do">
+        <mat-error>Required field</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input formControlName="description"
+               matInput
+               placeholder="Describe the task">
+        <mat-error>Please describe the task</mat-error>
+    </mat-form-field>
+    <button mat-raised-button
+            color="primary">Submit</button>
+</form>
+
+<div class="todos mx-auto">
+    <mat-card class="todo"
+              *ngFor="let todo of todos"
+              (click)="setStatus(todo)"
+              [ngClass]="{'status-undone' : todo.status === 'UNDONE', 'status-doing' : todo.status === 'DOING', 'status-done' : todo.status === 'DONE'}">
+        <mat-card-header class="todo-header">
+            <mat-card-title>{{ todo.title }}</mat-card-title>
+            <span class="spacer"></span>
+            <small class="text-muted"><i>#{{ todo.id }}</i></small>
+        </mat-card-header>
+        <mat-card-content class="todo-content">
+            <span class="todo-description"> {{ todo.description }} </span>
+            <span class="todo-status">{{ todo.status }}</span>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button
+                    color="primary"
+                    (click)="deleteTodo(todo)">DELETE
+            </button>
+        </mat-card-actions>
+        <!-- <span class="prism"></span> -->
+    </mat-card>
+</div>
